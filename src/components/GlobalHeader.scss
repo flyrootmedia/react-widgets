@@ -1,21 +1,21 @@
 @import '../sass/widgetsThemeDefault/widgetsThemeDefault';
 
 .global-header {
-    position: relative;
-    z-index: 10;
-    width: 100%;
     background: #fff;
     box-shadow: 0 0 12px rgba(0,0,0,0.3);
-
+    position: relative;
+    width: 100%;
+    z-index: 10;
+    
     &.-fixed {
         position: fixed;
         top: 0;
     }
 
     &_wrapper {
+        align-items: center;
         display: flex;
         height: $mobile-header-height;
-        align-items: center;
     }
     
     &_menu-btn-col {
@@ -28,14 +28,21 @@
 
     &_logo-col {
         width: calc(100% - 120px);
-        h1 {
-            margin: 0;
-        }
 
         a {
+            color: $color-theme-main;
+            display: block;
+            font-family: $font-family-theme;
+            font-size: 1.5rem;
+            font-weight: $font-weight-bold;
+            line-height: 1.5rem;
             text-align: center;
             text-decoration: none;
-            color: $color-theme-main;
+            
+            span {
+                display: block;
+                font-size: 0.6em;
+            }
         }
     }
 
@@ -58,7 +65,14 @@
             width: 350px;
 
             a {
+                font-size: 2.5rem;
+                line-height: 1.8rem;
                 margin: 0;
+                text-align: left;
+
+                span {
+                    font-size: 0.4em;
+                }
             }
         }
 

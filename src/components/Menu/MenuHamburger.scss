@@ -1,20 +1,26 @@
 @import '../../sass/widgetsThemeDefault/widgetsThemeDefault';
 
-$hamburger-vertical-position: 16px;
+/*
+Variables set to another variable are pulling from the theme level _variables.scss 
+This is to make it easier for you to customize them or remove dependancy on the theme 
+variables altogether.
+*/
+$bar-color: $color-theme-main;
 $hamburger-horizontal-position: 15px;
+$hamburger-vertical-position: 16px;
 
 .menu-hamburger {
-    width: 36px;
-    height: 29px;
+    background: transparent;
     border: none;
+    cursor: pointer;
+    height: 29px;
     margin: 0;
     padding: 0;
-    cursor: pointer;
-    background: transparent;
     position: fixed;
     top: $hamburger-vertical-position;
     transition: all .2s ease-out;
-
+    width: 36px;
+    
     // position based on menu prop class
     .-left & {
         left: $hamburger-horizontal-position
@@ -30,22 +36,22 @@ $hamburger-horizontal-position: 15px;
     }
 
     &_bar {
+        background: $bar-color;
         display: block;
-        position: absolute;
-        width: 100%;
         height: 5px;
-        background: $color-theme-main;
+        position: absolute;
         transition: all .2s ease-out;
-
+        width: 100%;
+        
         &.-bar-1 {
-            top: 0;
             left: 0;
+            top: 0;
         }
 
         &.-bar-2 {
-            top: 12px;
             left: 0;
             opacity: 1;
+            top: 12px;
         }
 
         &.-bar-3 {

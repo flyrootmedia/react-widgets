@@ -1,0 +1,68 @@
+@import '../sass/reset';
+@import '../sass/widgetsThemeDefault/widgetsThemeDefault';
+
+body {
+    color: $color-main-text;
+    font-family: $font-family-body;
+}
+
+a {
+    color: $color-theme-main;
+}
+
+h1, h2, h3 {
+    font-family: $font-family-theme;
+    margin: 0 0 1.2rem 0;
+    padding: 0;
+}
+
+.App {
+    min-width: 320px;
+}
+
+.max-width-wrapper {
+    box-sizing: border-box;
+    margin: 0 auto;
+    max-width: $max-width;
+    min-width: $extra-small;
+    padding: 0 20px;
+    width: 100%;
+
+    &.-pad-top {
+        padding-top: 35px;
+    }
+}
+
+.promo-grid {
+    align-items: center;
+    display: grid;
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+    grid-template-columns: 1fr;
+}
+
+.promo-box {
+    align-items: center;
+    background: $color-theme-main;
+    border: 2px solid $color-theme-main-shade;
+    border-radius: 6px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.3);
+    color: #fff;
+    display: flex;
+    font-size: $font-size-24;
+    font-weight: $font-weight-bold;
+    justify-content: center;
+    padding: 30px;
+    text-align: center;
+    text-decoration: none;
+
+    &:hover {
+        background: $color-theme-main-tint;
+    }
+}
+
+@include small-screen-up {
+    .promo-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}

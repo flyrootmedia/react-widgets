@@ -33,7 +33,7 @@ const GlobalHeader = () => {
                 </div>
                 <div className="global-header_logo-col">
                     <Link to="/">
-                        <h1>React Widgets</h1>
+                        React Widgets <span>by FlyRootMedia</span>
                     </Link>
                 </div>
                 <div className="global-header_nav-col">

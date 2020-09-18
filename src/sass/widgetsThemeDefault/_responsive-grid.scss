@@ -66,20 +66,23 @@
 }
 
 .responsive-grid {
-    display: grid;
     align-items: center;
-
+    display: grid;
+    
     @include medium-screen-up {
         &.-cols-6 {
             grid-template-columns: repeat(6, 16.6666%);
+
             &.-auto-cols {
                 grid-template-columns: repeat(6, 1fr);
             }
+
             @include responsive-grid(6);
         }
 
         &.-cols-12 {
             grid-template-columns: repeat(12, 8.3333%);
+            
             @include responsive-grid(12);
         }
     }

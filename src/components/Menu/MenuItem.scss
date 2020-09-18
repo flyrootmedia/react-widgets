@@ -1,63 +1,111 @@
 @import '../../sass/widgetsThemeDefault/widgetsThemeDefault';
 
-// _mixins
+/*
+Variables set to another variable are pulling from the theme level _variables.scss 
+This is to make it easier for you to customize them or remove dependancy on the theme 
+variables altogether.
+*/
+$active-state-background-color: $color-theme-main;
+$default-state-font-color: $color-gray-one;
+$hover-state-background-color: $color-theme-main-tint;
+$hover-state-underline-color: $color-theme-main;
+$level-one-item-font-size: $font-size-18;
+$level-one-item-font-weight: $font-weight-bold;
+$level-one-item-line-height: $font-size-22;
+$sub-menu-border-color: $color-theme-main;
+$sub-menu-font-weight: $font-weight-semibold;
+$sub-menu-link-color: $color-theme-main;
+
+// menu item mixins
 @mixin menu-item-default-state {
-    color: $color-gray-one;
     background-color: #fff;
+    color: $default-state-font-color;
+}
+
+@mixin mobile-menu-item-hover-state {
+    background-color: $hover-state-background-color;
+    color: #fff;
+
+    .arrow-down {
+        border-color: #fff transparent transparent transparent;
+    }
 }
 
 @mixin mobile-menu-item-active-state {
+    background-color: $active-state-background-color;
     color: #fff;
-    background-color: $color-theme-main;
+    
+    .arrow-down {
+        border-color: #fff transparent transparent transparent;
+    }
 }
 
-// menu items
+// menu items - default/mobile widths
 .menu-item {
     &.-active {
         @include mobile-menu-item-active-state;
     }
 
-    &_button, &_link {
-        display: block;
-        width: 100%;
+    &_button, 
+    &_link {
+        border-color: #fff;
+        border-style: solid;
+        border-width: 1px 0;
         box-sizing: border-box;
+        display: block;
+        font-size: $level-one-item-font-size;
+        font-weight: $level-one-item-font-weight;
+        line-height: $level-one-item-line-height;
         padding: 10px 20px;
-        font-size: $font-size-18;
+        position: relative;
         text-align: left;
-        font-weight: $font-weight-bold;
         text-decoration: none;
-        border-top: 1px solid #fff;
-        border-bottom: 1px solid #fff;
         transition: background-color .2s ease-out, color .2s ease-out;
-
+        width: 100%;
+        
         @include menu-item-default-state;
 
-        &:hover, &.active {
+        &:hover {
+            @include mobile-menu-item-hover-state;
+        }
+
+        &.active {
             @include mobile-menu-item-active-state;
         }
     }
 
+    &:first-child {
+        .menu-item_button,
+        .menu-item_link {
+            border-top-width: 0;
+        }
+    }
+
     &_button {
+        padding-right: 18px;
+
         .arrow-down {
-            display: none;
+            display: block;
+            position: absolute;
+            right: 20px;
+            top: 50%;
         }
     }
 
     &_sub-menu {
+        background: #fff;
         display: none;
+        font-weight: $sub-menu-font-weight;
         list-style: none;
         margin: 10px 0;
         padding: 0 20px;
-        border-left: 4px solid $color-theme-main;
-        background: #fff;
-        font-weight: $font-weight-semibold;
-
+        
         li {
             margin-bottom: 8px;
         }
 
         a {
-            color: $color-theme-main;
+            color: $sub-menu-link-color;
             text-decoration: none;
 
             &:hover {
@@ -67,38 +115,56 @@
     }
 
     &.-open {
+        .menu-item_button {
+            @include mobile-menu-item-active-state;
+        }
+
         .menu-item_sub-menu {
             display: block;
         }
     }
 }
 
+.menu.-left {
+    .menu-item_sub-menu {
+        border-left: 4px solid $sub-menu-border-color;
+    }
+}
+
+.menu.-right {
+    .menu-item_sub-menu {
+        border-right: 4px solid $sub-menu-border-color;
+    }
+}
+
+// menu items - desktop widths
 @include extra-large-screen-up {
     .menu-item {
-        position: relative;
         margin: 0 1%;
+        position: relative;
         white-space: nowrap;
 
         &.-active {
             @include menu-item-default-state;
         }
         
-        &_button, &_link {
-            position: relative;
-            padding: 10px 0;
+        &_button, 
+        &_link {
+            border-width: 0;
             margin: 0 20px;
+            padding: 10px 0;
             width: auto;
 
             &::after {
-                display: block;
-                position: absolute;
+                background: $hover-state-underline-color;
                 bottom: 0;
-                left: 50%;
                 content: '';
-                background: $color-theme-main;
+                display: block;
                 height: 2px;
-                width: 0;
+                left: 50%;
+                position: absolute;
                 transition: all .2s ease-out;
+                width: 0;
             }
 
             &:hover, &.active {
@@ -113,20 +179,18 @@
 
         &_button {
             padding-right: 18px;
-
+    
             .arrow-down {
-                display: block;
-                position: absolute;
+                left: auto;
                 right: 0;
-                top: 50%;
             }
         }
 
         &_sub-menu {
             border: none;
-            padding-top: 15px;
-            font-size: 0.8rem;
             box-shadow: 0 2px 12px rgba(0,0,0,0.2);
+            font-size: 0.8rem;
+            padding-top: 15px;
         }
 
         &.-open {
@@ -134,13 +198,17 @@
             .menu-item_link {
                 border: none;
             }
+
+            .menu-item_button {
+                @include menu-item-default-state;
+            }
     
             .menu-item_sub-menu {
-                position: absolute;
-                z-index: 10;
-                top: 30px;
                 left: 20px;
+                position: absolute;
+                top: 32px;
                 width: 200px;
+                z-index: 10;
             }
         }
     }

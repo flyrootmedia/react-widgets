@@ -2,65 +2,49 @@
 // @import 'variables';
 // @import 'breakpoints';
 
-// using !important here since these styles should never be overridden
+/*
+ * @description: hides an element visually while leaving it exposed for screen readers
+ *      - NOTE: using !important here since these styles should never be overridden
+ *      - Used in:
+ *          - MenuHamburger.js
+ */
 .screen-reader-only {
-    position: absolute !important;
-    width: 1px !important;
+    background-color:#fff !important;
+    border: 0 !important;
+    clip: rect(0,0,0,0) !important;
+    color:#000 !important;
     height: 1px !important;
-    padding: 0 !important;
     margin: -1px !important;
     overflow: hidden !important;
-    clip: rect(0,0,0,0) !important;
-    border: 0 !important;
-    color:#000 !important;
-    background-color:#fff !important;
+    padding: 0 !important;
+    position: absolute !important;
+    width: 1px !important;
 }
 
+/*
+ * @description: creates a triangular downward facing arrow
+ *      - Used in:
+ *          - MenuItem.js
+ *          - MenuItem.scss
+ */
 .arrow-down {
-    display: block;
-    width: 0;
-    height: 0;
     border-color: $color-theme-main transparent transparent transparent;
-    border-width: 8px;
     border-style: solid;
-
+    border-width: 8px;
+    display: block;
+    height: 0;
+    width: 0;
+    
     &.-small {
         border-width: 4px; 
     }
 }
 
-.max-width-wrapper {
-    width: 100%;
-    min-width: $extra-small;
-    max-width: $max-width;
-    margin: 0 auto;
-    padding: 0 20px;
-    box-sizing: border-box;
-
-    // &.-pad-top {
-    //     padding-top: 35px;
-    // }
-
-    // &.-center-align {
-    //     text-align: center;
-    // }
-
-    // &.-promo-text {
-    //     font-size: 1.1rem;
-    //     line-height: 1.5;
-    //     font-family: $font-family-theme;
-    // }
-}
-
-// .page-wrapper {
-//     padding: 0 0 60px 0;
-//     background: #fff;
-
-//     &.-shade {
-//         background: $color-gray-one;
-//     }
-// }
-
+/*
+ * @description: standard clearfix class to fix float issues
+ *      - Used in:
+ *          - GlobalHeader.js
+ */
 .clearfix {
     *zoom: 1;
     &::after, &::before {

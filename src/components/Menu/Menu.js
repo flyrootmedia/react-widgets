@@ -32,8 +32,6 @@ const Menu = ({ position = 'left', menuIsOpen, menuItems, closeMenu }) => {
         };
     }, [closeMenu]);
 
-    const menuClassName = `menu ${menuIsOpen ? '-open' : ''} -${position}`;
-
     const renderedMenuItems = menuItems.map(menuItem => {
         return (
             <MenuItem 
@@ -46,12 +44,15 @@ const Menu = ({ position = 'left', menuIsOpen, menuItems, closeMenu }) => {
     });
 
     return (
-        <nav ref={navEl} className={menuClassName}>
-            <MenuHamburger />
-            <ul className="menu_level-one">
-                {renderedMenuItems}
-            </ul>
-        </nav>
+        <React.Fragment>
+            <div className={`menu-overlay ${menuIsOpen ? '-open' : ''}`}></div>
+            <nav ref={navEl} className={`menu ${menuIsOpen ? '-open' : ''} -${position}`}>
+                <MenuHamburger />
+                <ul className="menu_level-one">
+                    {renderedMenuItems}
+                </ul>
+            </nav>
+        </React.Fragment>
     );
 };
 
