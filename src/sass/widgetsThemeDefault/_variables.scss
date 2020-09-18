@@ -3,21 +3,21 @@ $orange-roughy: #d34a1d;
 $rust: #bb3c12;
 $cinnabar: #e7592b;
 $mineshaft: #222;
-$tundora: #444;
-$dusty-gray: #999;
-$alto: #ddd;
-$gallery: #efefef;
+// $tundora: #444;
+// $dusty-gray: #999;
+// $alto: #ddd;
+// $gallery: #efefef;
 
-// Brand colors
-$color-brand-main: $orange-roughy;
-$color-brand-main-shade: $rust;
-$color-brand-main-tint: $cinnabar;
+// Theme colors
+$color-theme-main: $orange-roughy;
+$color-theme-main-shade: $rust;
+$color-theme-main-tint: $cinnabar;
 $color-main-text: $mineshaft;
 $color-gray-one: $mineshaft;
-$color-gray-two: $tundora;
-$color-gray-three: $dusty-gray;
-$color-gray-four: $alto;
-$color-gray-five: $gallery;
+// $color-gray-two: $tundora;
+// $color-gray-three: $dusty-gray;
+// $color-gray-four: $alto;
+// $color-gray-five: $gallery;
 
 // Font sizes converted from px to REM
 $font-size-8: 0.5rem;
@@ -63,9 +63,8 @@ $font-size-47: 2.938rem;
 $font-size-48: 3rem;
 $font-size-49: 3.063rem;
 
-
-// fonts
-$font-family-brand: 'Titillium Web', Arial, Helvetica, sans-serif;
+// Fonts
+$font-family-theme: 'Titillium Web', Arial, Helvetica, sans-serif;
 $font-family-body: Arial, Helvetica, sans-serif;
 $font-weight-light: 300;
 $font-weight-regular: 400;
@@ -73,7 +72,7 @@ $font-weight-medium: 500;
 $font-weight-semibold: 600;
 $font-weight-bold: 700;
 
-// layout/dimensions
+// Layout/Dimensions
 $mobile-header-height: 60px;
 $desktop-header-height: 82px;
-$form-el-border-radius: 4px;
+// $form-el-border-radius: 4px;

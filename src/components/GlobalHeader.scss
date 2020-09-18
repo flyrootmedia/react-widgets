@@ -29,13 +29,13 @@
     &_logo-col {
         width: calc(100% - 120px);
         h1 {
-            font-family: $font-family-brand;
             margin: 0;
         }
+
         a {
             text-align: center;
             text-decoration: none;
-            color: $color-brand-main;
+            color: $color-theme-main;
         }
     }
 

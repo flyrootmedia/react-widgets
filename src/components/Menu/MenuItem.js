@@ -5,8 +5,15 @@ import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { closeMenu } from './menuActions';
 
-const MenuItem = ({label, url, subMenuLinks, subMenuOpenOnRender, closeMenu}) => {
-    const [subMenuIsOpen, setSubMenuIsOpen] = useState(subMenuOpenOnRender);
+/**
+ * @description: a single menu item and its sub-menu if applicable. 
+ * @prop {string} label: the text of the menu item link or button
+ * @prop {string} url: the URL of the menu item's link
+ * @prop {Object[]} subMenuLinks: array of subment link objects
+ * @prop {function} closeMenu: Redux action; closes the menu
+ */
+const MenuItem = ({ label, url, subMenuLinks, closeMenu }) => {
+    const [subMenuIsOpen, setSubMenuIsOpen] = useState(false);
     const menuItemEl = useRef();
 
     const onMenuLinkClicked = () => {

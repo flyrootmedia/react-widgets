@@ -1,18 +1,34 @@
 @import '../../sass/widgetsThemeDefault/widgetsThemeDefault';
 
+// variables set to another variable are pulling from the theme level _variables.scss 
+$mobile-menu-height: $mobile-header-height;
+$desktop-menu-height: $desktop-header-height;
+$mobile-menu-width: 320px;
+
 .menu {
-    width: 320px;
-    height: calc(100vh - #{$mobile-header-height});
+    width: $mobile-menu-width;
+    height: calc(100vh - #{$mobile-menu-height});
     position: fixed;
-    left: -335px;
-    top: $mobile-header-height;
+    top: $mobile-menu-height;
     background: #fff;
     box-shadow: 0 0 12px rgba(0,0,0,0.3);
-    font-family: $font-family-brand;
-    transition: left 0.2s ease-out;
+    font-family: $font-family-theme;
+    transition: left 0.2s ease-out, right 0.2s ease-out;
 
-    &.-open {
-        left: 0;
+    &.-left {
+        left: calc((#{$mobile-menu-width} + 15px) * -1);
+
+        &.-open {
+            left: 0;
+        }
+    }
+
+    &.-right {
+        right: calc((#{$mobile-menu-width} + 15px) * -1);
+
+        &.-open {
+            right: 0;
+        }
     }
 
     &_level-one {
@@ -29,7 +45,7 @@
 @include extra-large-screen-up {
     .menu {
         position: static;
-        height: $desktop-header-height;
+        height: $desktop-menu-height;
         width: 100%;
         box-shadow: none;
 

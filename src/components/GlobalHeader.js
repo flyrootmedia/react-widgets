@@ -37,7 +37,7 @@ const GlobalHeader = () => {
                     </Link>
                 </div>
                 <div className="global-header_nav-col">
-                    <Menu />
+                    <Menu position="right" />
                 </div>
             </div>
         </div>

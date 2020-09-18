@@ -4,6 +4,12 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { openMenu, closeMenu } from './menuActions';
 
+/**
+ * @description: the hamburger button to toggle the menu at mobile widths 
+ * @prop {bool} menuIsOpen: Redux state; whether or not the menu is currently open
+ * @prop {function} openMenu: Redux action; opens the menu
+ * @prop {function} closeMenu: Redux action; closes the menu
+ */
 const MenuHamburger = ({ menuIsOpen, openMenu, closeMenu }) => {
 
     const toggleMenu = () => {

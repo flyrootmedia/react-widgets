@@ -8,7 +8,7 @@
 
 @mixin mobile-menu-item-active-state {
     color: #fff;
-    background-color: $color-brand-main;
+    background-color: $color-theme-main;
 }
 
 // menu items
@@ -24,7 +24,6 @@
         padding: 10px 20px;
         font-size: $font-size-18;
         text-align: left;
-        font-family: $font-family-brand;
         font-weight: $font-weight-bold;
         text-decoration: none;
         border-top: 1px solid #fff;
@@ -49,15 +48,16 @@
         list-style: none;
         margin: 10px 0;
         padding: 0 20px;
-        border-left: 4px solid $color-brand-main;
+        border-left: 4px solid $color-theme-main;
         background: #fff;
+        font-weight: $font-weight-semibold;
 
         li {
             margin-bottom: 8px;
         }
 
         a {
-            color: $color-brand-main;
+            color: $color-theme-main;
             text-decoration: none;
 
             &:hover {
@@ -95,7 +95,7 @@
                 bottom: 0;
                 left: 50%;
                 content: '';
-                background: $color-brand-main;
+                background: $color-theme-main;
                 height: 2px;
                 width: 0;
                 transition: all .2s ease-out;

@@ -7,7 +7,16 @@ import { closeMenu } from './menuActions';
 import MenuHamburger from './MenuHamburger';
 import MenuItem from './MenuItem';
 
-const Menu = ({ menuIsOpen, menuItems, closeMenu }) => {
+/**
+ * @description: configurable responsive menu with simple 2-level accordion/dropdown behavior
+ * @prop {string} [position]: controls whether the menu is on the right or left (at mobile sizes)
+ *      - valid values are "left" or "right"
+ * @prop {boolean} menuIsOpen: Redux state; controls whether the menu is open or closed (at mobile sizes)
+ * @prop {Object[]} menuItems: Redux state; array of the item objects in the menu
+ *      - currently hardcoded in menuReducer.js
+ * @prop {funnction} closeMenu: Redux action; closes the menu
+ */
+const Menu = ({ position = 'left', menuIsOpen, menuItems, closeMenu }) => {
     let navEl = useRef();
 
     useEffect(() => {
@@ -23,6 +32,8 @@ const Menu = ({ menuIsOpen, menuItems, closeMenu }) => {
         };
     }, [closeMenu]);
 
+    const menuClassName = `menu ${menuIsOpen ? '-open' : ''} -${position}`;
+
     const renderedMenuItems = menuItems.map(menuItem => {
         return (
             <MenuItem 
@@ -35,7 +46,7 @@ const Menu = ({ menuIsOpen, menuItems, closeMenu }) => {
     });
 
     return (
-        <nav ref={navEl} className={`menu ${menuIsOpen ? '-open' : ''}`}>
+        <nav ref={navEl} className={menuClassName}>
             <MenuHamburger />
             <ul className="menu_level-one">
                 {renderedMenuItems}

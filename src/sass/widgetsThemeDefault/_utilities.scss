@@ -1,16 +1,26 @@
-@import 'mixins';
-@import 'variables';
-@import 'breakpoints';
+// @import 'mixins';
+// @import 'variables';
+// @import 'breakpoints';
 
+// using !important here since these styles should never be overridden
 .screen-reader-only {
-    @include screen-reader-only;
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0,0,0,0) !important;
+    border: 0 !important;
+    color:#000 !important;
+    background-color:#fff !important;
 }
 
 .arrow-down {
     display: block;
     width: 0;
     height: 0;
-    border-color: $color-brand-main transparent transparent transparent;
+    border-color: $color-theme-main transparent transparent transparent;
     border-width: 8px;
     border-style: solid;
 
@@ -27,67 +37,74 @@
     padding: 0 20px;
     box-sizing: border-box;
 
-    &.-pad-top {
-        padding-top: 35px;
-    }
+    // &.-pad-top {
+    //     padding-top: 35px;
+    // }
 
-    &.-center-align {
-        text-align: center;
-    }
+    // &.-center-align {
+    //     text-align: center;
+    // }
 
-    &.-promo-text {
-        font-size: 1.1rem;
-        line-height: 1.5;
-        font-family: $font-family-brand;
-    }
+    // &.-promo-text {
+    //     font-size: 1.1rem;
+    //     line-height: 1.5;
+    //     font-family: $font-family-theme;
+    // }
 }
 
-.page-wrapper {
-    padding: 0 0 60px 0;
-    background: #fff;
+// .page-wrapper {
+//     padding: 0 0 60px 0;
+//     background: #fff;
 
-    &.-shade {
-        background: $color-gray-one;
-    }
-}
+//     &.-shade {
+//         background: $color-gray-one;
+//     }
+// }
 
 .clearfix {
-    @include clearfix;
-}
-
-.hidden {
-    display: none !important;
-}
-
-.btn {
-    &.-primary {
-        @include button-primary;
-        &:hover {
-            @include button-primary-hover;
-        }
+    *zoom: 1;
+    &::after, &::before {
+        content: "";
+        display: table;
     }
-
-    &.-action {
-        width: 40px;
-        height: 40px;
-        background-repeat: no-repeat;
-        background-position: 50%;
-
-        &.-edit {
-            background-image: url('/images/icon_pencil.png');
-        }
-
-        &.-delete {
-            background-image: url('/images/icon_trashcan.png');
-        }
+    &::after {
+        clear: both;
     }
 }
 
-.-msg {
-    display: block;
-    margin-bottom: 5px;
+// .hidden {
+//     display: none !important;
+// }
 
-    &.-error {
-        color: red;
-    }
-}
+// .btn {
+//     &.-primary {
+//         @include button-primary;
+//         &:hover {
+//             @include button-primary-hover;
+//         }
+//     }
+
+//     &.-action {
+//         width: 40px;
+//         height: 40px;
+//         background-repeat: no-repeat;
+//         background-position: 50%;
+
+//         &.-edit {
+//             background-image: url('/images/icon_pencil.png');
+//         }
+
+//         &.-delete {
+//             background-image: url('/images/icon_trashcan.png');
+//         }
+//     }
+// }
+
+// .-msg {
+//     display: block;
+//     margin-bottom: 5px;
+
+//     &.-error {
+//         color: red;
+//     }
+// }
