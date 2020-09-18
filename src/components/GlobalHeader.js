@@ -4,7 +4,6 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 import Menu from './Menu/Menu';
-import MenuHamburger from './Menu/MenuHamburger';
 
 const GlobalHeader = () => {
     const[bodyIsScrolled, setBodyIsScrolled] = useState(false);
@@ -31,7 +30,6 @@ const GlobalHeader = () => {
         <div className={`global-header clearfix ${bodyIsScrolled ? '-fixed' : ''}`}>
             <div className="global-header_wrapper max-width-wrapper">
                 <div className="global-header_menu-btn-col">
-                    <MenuHamburger />
                 </div>
                 <div className="global-header_logo-col">
                     <Link to="/">

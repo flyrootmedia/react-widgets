@@ -1,11 +1,28 @@
 import './Menu.scss';
 
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { connect } from 'react-redux';
+import { closeMenu } from './menuActions';
 
+import MenuHamburger from './MenuHamburger';
 import MenuItem from './MenuItem';
 
-const Menu = ({ menuIsOpen, menuItems }) => {
+const Menu = ({ menuIsOpen, menuItems, closeMenu }) => {
+    let navEl = useRef();
+
+    useEffect(() => {
+        const onBodyClick = (event) => {
+            if (navEl.current && !navEl.current.contains(event.target)) {
+                closeMenu();
+            }
+        };
+        document.body.addEventListener('click', onBodyClick);
+
+        return () => {
+            document.body.removeEventListener('click', onBodyClick);
+        };
+    }, [closeMenu]);
+
     const renderedMenuItems = menuItems.map(menuItem => {
         return (
             <MenuItem 
@@ -18,7 +35,8 @@ const Menu = ({ menuIsOpen, menuItems }) => {
     });
 
     return (
-        <nav className={`menu ${menuIsOpen ? '-open' : ''}`}>
+        <nav ref={navEl} className={`menu ${menuIsOpen ? '-open' : ''}`}>
+            <MenuHamburger />
             <ul className="menu_level-one">
                 {renderedMenuItems}
             </ul>
@@ -33,4 +51,7 @@ const mapStateToProps = (state) => {
     };
 };
 
-export default connect(mapStateToProps)(Menu);
+export default connect(
+    mapStateToProps,
+    { closeMenu }
+)(Menu);

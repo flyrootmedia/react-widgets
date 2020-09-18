@@ -1,21 +1,18 @@
 import './MenuItem.scss';
 
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { closeMenu } from './menuActions';
 
-const MenuItem = ({label, url, subMenuLinks, closeMenu}) => {
-    const [subMenuIsOpen, setSubMenuIsOpen] = useState(false);
-    let menuItemEl = useRef();
-    
-    let menuItem = (
-        <NavLink exact className="menu-item_link" to={url} onClick={closeMenu}>
-            {label}
-        </NavLink>
-    );
+const MenuItem = ({label, url, subMenuLinks, subMenuOpenOnRender, closeMenu}) => {
+    const [subMenuIsOpen, setSubMenuIsOpen] = useState(subMenuOpenOnRender);
+    const menuItemEl = useRef();
 
-    let subMenuList = '';
+    const onMenuLinkClicked = () => {
+        setSubMenuIsOpen(false);
+        closeMenu();
+    };
 
     useEffect(() => {
         const onBodyClick = (event) => {
@@ -23,13 +20,20 @@ const MenuItem = ({label, url, subMenuLinks, closeMenu}) => {
                 setSubMenuIsOpen(false);
             }
         };
-
         document.body.addEventListener('click', onBodyClick);
 
         return () => {
             document.body.removeEventListener('click', onBodyClick);
         };
     }, []);
+    
+    let menuItem = (
+        <NavLink exact className="menu-item_link" to={url} onClick={onMenuLinkClicked}>
+            {label}
+        </NavLink>
+    );
+
+    let subMenuList = '';
 
     if (subMenuLinks.length > 0) {
         menuItem = (
@@ -44,7 +48,7 @@ const MenuItem = ({label, url, subMenuLinks, closeMenu}) => {
         const renderedsubMenuLinks = subMenuLinks.map(link => {
             return (
                 <li key={link.label}>
-                    <NavLink exact to={link.url} onClick={closeMenu}>
+                    <NavLink exact to={link.url} onClick={onMenuLinkClicked}>
                         {link.label}
                     </NavLink>
                 </li>

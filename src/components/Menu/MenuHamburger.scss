@@ -8,7 +8,9 @@
     padding: 0;
     cursor: pointer;
     background: transparent;
-    position: relative;
+    position: fixed;
+    top: 16px;
+    left: 15px;
     transition: all .2s ease-out;
 
     &:focus {
@@ -58,5 +60,11 @@
                 transform: rotate(45deg);
             }
         }
+    }
+}
+
+@include extra-large-screen-up {
+    .menu-hamburger {
+        display: none;
     }
 }
