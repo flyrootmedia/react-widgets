@@ -1,0 +1,147 @@
+@import '../../sass/widgetsThemeDefault/widgetsThemeDefault';
+
+// _mixins
+@mixin menu-item-default-state {
+    color: $color-gray-one;
+    background-color: #fff;
+}
+
+@mixin mobile-menu-item-active-state {
+    color: #fff;
+    background-color: $color-brand-main;
+}
+
+// menu items
+.menu-item {
+    &.-active {
+        @include mobile-menu-item-active-state;
+    }
+
+    &_button, &_link {
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 10px 20px;
+        font-size: $font-size-18;
+        text-align: left;
+        font-family: $font-family-brand;
+        font-weight: $font-weight-bold;
+        text-decoration: none;
+        border-top: 1px solid #fff;
+        border-bottom: 1px solid #fff;
+        transition: background-color .2s ease-out, color .2s ease-out;
+
+        @include menu-item-default-state;
+
+        &:hover, &.active {
+            @include mobile-menu-item-active-state;
+        }
+    }
+
+    &_button {
+        .arrow-down {
+            display: none;
+        }
+    }
+
+    &_sub-menu {
+        display: none;
+        list-style: none;
+        margin: 10px 0;
+        padding: 0 20px;
+        border-left: 4px solid $color-brand-main;
+        background: #fff;
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        a {
+            color: $color-brand-main;
+            text-decoration: none;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+
+    &.-open {
+        .menu-item_sub-menu {
+            display: block;
+        }
+    }
+}
+
+@include extra-large-screen-up {
+    .menu-item {
+        position: relative;
+        margin: 0 1%;
+        white-space: nowrap;
+
+        &.-active {
+            @include menu-item-default-state;
+        }
+        
+        &_button, &_link {
+            position: relative;
+            padding: 10px 0;
+            margin: 0 20px;
+            width: auto;
+
+            &::after {
+                display: block;
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                content: '';
+                background: $color-brand-main;
+                height: 2px;
+                width: 0;
+                transition: all .2s ease-out;
+            }
+
+            &:hover, &.active {
+                @include menu-item-default-state;
+
+                &::after {
+                    left: 0;
+                    width: 100%;
+                }
+            }
+        }
+
+        &_button {
+            padding-right: 18px;
+
+            .arrow-down {
+                display: block;
+                position: absolute;
+                right: 0;
+                top: 50%;
+            }
+        }
+
+        &_sub-menu {
+            border: none;
+            padding-top: 15px;
+            font-size: 0.8rem;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.2);
+        }
+
+        &.-open {
+            .menu-item_button, 
+            .menu-item_link {
+                border: none;
+            }
+    
+            .menu-item_sub-menu {
+                position: absolute;
+                z-index: 10;
+                top: 30px;
+                left: 20px;
+                width: 200px;
+            }
+        }
+    }
+}

@@ -1,0 +1,69 @@
+@import '../sass/widgetsThemeDefault/widgetsThemeDefault';
+
+.global-header {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    background: #fff;
+    box-shadow: 0 0 12px rgba(0,0,0,0.3);
+
+    &.-fixed {
+        position: fixed;
+        top: 0;
+    }
+
+    &_wrapper {
+        display: flex;
+        height: $mobile-header-height;
+        align-items: center;
+    }
+    
+    &_menu-btn-col {
+        width: 60px;
+
+        &_menu-btn {
+            font-size: 2rem;
+        }
+    }
+
+    &_logo-col {
+        width: calc(100% - 120px);
+        h1 {
+            font-family: $font-family-brand;
+            margin: 0;
+        }
+        a {
+            text-align: center;
+            text-decoration: none;
+            color: $color-brand-main;
+        }
+    }
+
+    &_nav-col {
+        width: 60px;
+    }
+}
+
+@include extra-large-screen-up {
+    .global-header {
+        &_wrapper {
+            height: $desktop-header-height;
+        }
+
+        &_menu-btn-col {
+            display: none;
+        }
+
+        &_logo-col {
+            width: 350px;
+
+            a {
+                margin: 0;
+            }
+        }
+
+        &_nav-col {
+            width: calc(100% - 350px);
+        }
+    }
+}
