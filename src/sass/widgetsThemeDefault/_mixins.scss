@@ -1,10 +1,10 @@
 //@import 'variables';
 
-// @mixin appearance($property) {
-//     -moz-appearance: $property;
-//     -webkit-appearance: $property;
-//     appearance: $property;
-// }
+@mixin appearance($property) {
+    -moz-appearance: $property;
+    -webkit-appearance: $property;
+    appearance: $property;
+}
 
 // @mixin form-field {
 //     width: 100%;
@@ -15,25 +15,23 @@
 //     box-sizing: border-box;
 // }
 
-// @mixin button-primary {
-//     @include appearance(none);
-//     height: 47px;
-//     padding: 0 28px; 
-//     color: #fff;
-//     background-color: $color-theme-main;
-//     font-size: 1.5rem;
-//     text-transform: uppercase;
-//     border: none;
-//     border-radius: $form-el-border-radius;
-//     font-weight: $font-weight-bold;
-//     cursor: pointer;
-//     box-shadow: 2px 5px 8px rgba(0,0,0,0.2);
-//     transition: all .2s ease-out; 
-// }
+@mixin button-primary {
+    @include appearance(none);
+    height: 42px;
+    padding: 0 20px; 
+    color: #fff;
+    background-color: $color-theme-main;
+    border: none;
+    border-radius: $form-el-border-radius;
+    font-weight: $font-weight-bold;
+    cursor: pointer;
+    box-shadow: 0 0 8px rgba(0,0,0,0.2);
+    transition: all .2s ease-out; 
+}
 
-// @mixin button-primary-hover {
-//     background-color: $color-theme-main-shade;
-// }
+@mixin button-primary-hover {
+    background-color: $color-theme-main-tint;
+}
 
 // @mixin clearfix {
 //     *zoom: 1;

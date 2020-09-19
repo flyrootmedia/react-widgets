@@ -1,7 +1,13 @@
 @import '../sass/reset';
 @import '../sass/widgetsThemeDefault/widgetsThemeDefault';
 
+$border-radius: 6px;
+
 body {
+    background: -moz-linear-gradient(top, #{$color-gray-five} 0%, #ffffff 50%);
+    background: -webkit-linear-gradient(top,  #{$color-gray-five} 0%,#ffffff 50%);
+    background: linear-gradient(to bottom,  #{$color-gray-five} 0%,#ffffff 50%);
+    background-repeat: no-repeat;
     color: $color-main-text;
     font-family: $font-family-body;
 }
@@ -10,14 +16,44 @@ a {
     color: $color-theme-main;
 }
 
+code {
+    background: $color-gray-one;
+    border: 2px solid $color-gray-three;
+    border-radius: $border-radius;
+    color: $color-gray-five;
+    display: inline-block;
+    font-size: $font-size-14;
+    padding: 0 5px;
+    white-space: pre-wrap;
+
+    &.code-block {
+        display: block;
+        margin-bottom: 20px;
+        padding: 20px;
+    }
+}
+
 h1, h2, h3 {
     font-family: $font-family-theme;
     margin: 0 0 1.2rem 0;
     padding: 0;
 }
 
+p {
+    line-height: 1.5rem;
+}
+
+ul {
+    line-height: 1.5rem;
+    list-style-type: square;
+    list-style-position: inside;
+    margin: 0 0 20px;
+    padding: 0 0 0 20px;
+}
+
 .App {
     min-width: 320px;
+    padding-top: $mobile-header-height;
 }
 
 .max-width-wrapper {
@@ -45,7 +81,7 @@ h1, h2, h3 {
     align-items: center;
     background: $color-theme-main;
     border: 2px solid $color-theme-main-shade;
-    border-radius: 6px;
+    border-radius: $border-radius;
     box-shadow: 0 0 5px rgba(0,0,0,0.3);
     color: #fff;
     display: flex;
@@ -55,10 +91,39 @@ h1, h2, h3 {
     padding: 30px;
     text-align: center;
     text-decoration: none;
+    transition: background-color .2s ease-out;
 
     &:hover {
         background: $color-theme-main-tint;
     }
+}
+
+.statement {
+    color: #c284bd;
+}
+
+.element {
+    color: #9cdcfe;
+}
+
+.keyword {
+    color: #569cd6;
+}
+
+.function {
+    color: #dcdcaa;
+}
+
+.string {
+    color: #ce9178;
+}
+
+.tag {
+    color: #4ec9b0;
+}
+
+.comment {
+    color: #6a9955;
 }
 
 @include small-screen-up {

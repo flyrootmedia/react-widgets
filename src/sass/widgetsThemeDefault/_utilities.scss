@@ -1,4 +1,4 @@
-// @import 'mixins';
+@import './mixins';
 // @import 'variables';
 // @import 'breakpoints';
 
@@ -60,29 +60,31 @@
 //     display: none !important;
 // }
 
-// .btn {
-//     &.-primary {
-//         @include button-primary;
-//         &:hover {
-//             @include button-primary-hover;
-//         }
-//     }
+.btn {
+    margin: 0 15px 15px 0;
+    
+    &.-primary {
+        @include button-primary;
+        &:hover {
+            @include button-primary-hover;
+        }
+    }
 
-//     &.-action {
-//         width: 40px;
-//         height: 40px;
-//         background-repeat: no-repeat;
-//         background-position: 50%;
+    // &.-action {
+    //     width: 40px;
+    //     height: 40px;
+    //     background-repeat: no-repeat;
+    //     background-position: 50%;
 
-//         &.-edit {
-//             background-image: url('/images/icon_pencil.png');
-//         }
+    //     &.-edit {
+    //         background-image: url('/images/icon_pencil.png');
+    //     }
 
-//         &.-delete {
-//             background-image: url('/images/icon_trashcan.png');
-//         }
-//     }
-// }
+    //     &.-delete {
+    //         background-image: url('/images/icon_trashcan.png');
+    //     }
+    // }
+}
 
 // .-msg {
 //     display: block;

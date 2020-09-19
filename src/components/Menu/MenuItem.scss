@@ -20,6 +20,10 @@ $sub-menu-link-color: $color-theme-main;
 @mixin menu-item-default-state {
     background-color: #fff;
     color: $default-state-font-color;
+
+    .arrow-down {
+        border-top-color: $hover-state-underline-color;
+    }
 }
 
 @mixin mobile-menu-item-hover-state {
@@ -27,7 +31,7 @@ $sub-menu-link-color: $color-theme-main;
     color: #fff;
 
     .arrow-down {
-        border-color: #fff transparent transparent transparent;
+        border-top-color: #fff;
     }
 }
 
@@ -36,7 +40,7 @@ $sub-menu-link-color: $color-theme-main;
     color: #fff;
     
     .arrow-down {
-        border-color: #fff transparent transparent transparent;
+        border-top-color: #fff;
     }
 }
 
@@ -125,6 +129,7 @@ $sub-menu-link-color: $color-theme-main;
     }
 }
 
+// Menu-Specific Settings
 .menu.-left {
     .menu-item_sub-menu {
         border-left: 4px solid $sub-menu-border-color;
@@ -134,6 +139,17 @@ $sub-menu-link-color: $color-theme-main;
 .menu.-right {
     .menu-item_sub-menu {
         border-right: 4px solid $sub-menu-border-color;
+    }
+}
+
+.menu.-animatedSubMenus {
+    .menu-item {
+        overflow: hidden;
+        transition: height .2s ease-out;
+
+        &_sub-menu {
+            display: block;
+        }
     }
 }
 
@@ -167,7 +183,8 @@ $sub-menu-link-color: $color-theme-main;
                 width: 0;
             }
 
-            &:hover, &.active {
+            &:hover, 
+            &.active {
                 @include menu-item-default-state;
 
                 &::after {
@@ -209,6 +226,26 @@ $sub-menu-link-color: $color-theme-main;
                 top: 32px;
                 width: 200px;
                 z-index: 10;
+            }
+        }
+    }
+
+    // TODO: figure out positioning issues with animated menu at desktop widths.
+    // Right now I'm just overriding it back to the default styles
+    .menu.-animatedSubMenus {
+        .menu-item {
+            transition: none;
+            overflow: visible;
+            height: 44px !important;
+    
+            &_sub-menu {
+                display: none;
+            }
+
+            &.-open {
+                .menu-item_sub-menu {
+                    display: block;
+                }
             }
         }
     }

@@ -1,23 +1,25 @@
 // Named Colors
-$burnt-sienna: #eb8260;
+$alto: #ddd;
+$dusty-gray: #999;
+$gallery: #efefef;
 $mineshaft: #222;
 $orange-roughy: #d34a1d;
-$rust: #bb3c12;
-// $tundora: #444;
-// $dusty-gray: #999;
-// $alto: #ddd;
-// $gallery: #efefef;
+$steel-blue: #3f7aab;
+$tundora: #444;
 
 // Theme colors
 $color-gray-one: $mineshaft;
+$color-gray-two: $tundora;
+$color-gray-three: $dusty-gray;
+$color-gray-four: $alto;
+$color-gray-five: $gallery;
 $color-main-text: $mineshaft;
-$color-theme-main: $orange-roughy;
-$color-theme-main-shade: $rust;
-$color-theme-main-tint: $burnt-sienna;
-// $color-gray-two: $tundora;
-// $color-gray-three: $dusty-gray;
-// $color-gray-four: $alto;
-// $color-gray-five: $gallery;
+$color-theme-main: $steel-blue;
+$color-theme-main-shade: darken($color-theme-main, 5%);
+$color-theme-main-tint: lighten($color-theme-main, 8%);
+$color-theme-secondary: $orange-roughy;
+$color-theme-secondary-shade: darken($color-theme-secondary, 5%);
+$color-theme-secondary-tint: lighten($color-theme-secondary, 8%); 
 
 // Font sizes converted from px to REM
 $font-size-8: 0.5rem;
@@ -76,4 +78,4 @@ $font-weight-bold: 700;
 // Layout/Dimensions
 $desktop-header-height: 82px;
 $mobile-header-height: 60px;
-// $form-el-border-radius: 4px;
+$form-el-border-radius: 4px;

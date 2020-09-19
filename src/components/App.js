@@ -23,7 +23,6 @@ const App = () => {
                 <Route path="/modal" exact component={ModalDemo} />
                 <Route path="/styled-form" exact component={StyledFormDemo} />
             </BrowserRouter>
-
         </div>
     );
 };

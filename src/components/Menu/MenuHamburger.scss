@@ -5,7 +5,10 @@ Variables set to another variable are pulling from the theme level _variables.sc
 This is to make it easier for you to customize them or remove dependancy on the theme 
 variables altogether.
 */
-$bar-color: $color-theme-main;
+$bar-color-active: $color-theme-secondary;
+$bar-color-active-hover: $color-theme-secondary-tint;
+$bar-color-default: $color-theme-main;
+$bar-color-default-hover: $color-theme-main-tint;
 $hamburger-horizontal-position: 15px;
 $hamburger-vertical-position: 16px;
 
@@ -36,7 +39,7 @@ $hamburger-vertical-position: 16px;
     }
 
     &_bar {
-        background: $bar-color;
+        background: $bar-color-default;
         display: block;
         height: 5px;
         position: absolute;
@@ -60,10 +63,17 @@ $hamburger-vertical-position: 16px;
         }
     }
 
+    &:hover {
+        .menu-hamburger_bar {
+            background: $bar-color-default-hover;
+        }
+    }
+
     &.-open {
         transform: rotate(180deg);
         
         .menu-hamburger_bar {
+            background: $bar-color-active;
             &.-bar-1 {
                 top: 12px;
                 transform: rotate(-45deg);
@@ -76,6 +86,12 @@ $hamburger-vertical-position: 16px;
             &.-bar-3 {
                 bottom: 12px;
                 transform: rotate(45deg);
+            }
+        }
+
+        &:hover {
+            .menu-hamburger_bar {
+                background: $bar-color-active-hover;
             }
         }
     }
