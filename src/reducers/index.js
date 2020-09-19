@@ -14,5 +14,5 @@ export default combineReducers({
     accordion: accordionReducer,
     menu: menuReducer,
     globalMenuPosition: menuPositionReducer,
-    animateGlobalSubMenus: menuAnimateSubMenusReducer
+    globalMenuAnimateSubmenus: menuAnimateSubMenusReducer
 });

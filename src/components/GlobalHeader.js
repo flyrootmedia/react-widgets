@@ -28,7 +28,7 @@ const GlobalHeader = ({ menuPosition, animateSubMenus }) => {
 const mapStateToProps = (state) => {
     return {
         menuPosition: state.globalMenuPosition,
-        animateSubMenus: state.animateGlobalSubMenus
+        animateSubMenus: state.globalMenuAnimateSubmenus
     };
 };
 

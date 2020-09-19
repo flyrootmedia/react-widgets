@@ -83,7 +83,7 @@ const MenuDemo = ({ menuPosition, setMenuPosition, animateSubMenus, setSubMenuAn
 const mapStateToProps = (state) => {
     return {
         menuPosition: state.globalMenuPosition,
-        animateSubMenus: state.animateGlobalSubMenus
+        animateSubMenus: state.globalMenuAnimateSubmenus
     };
 };
 
