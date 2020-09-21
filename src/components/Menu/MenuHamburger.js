@@ -21,6 +21,7 @@ const MenuHamburger = ({ menuIsOpen, openMenu, closeMenu }) => {
             type="button" 
             className={`menu-hamburger ${menuIsOpen ? '-open' : ''}`}
             onClick={toggleMenu}>
+                <span className="menu-hamburger_overlay" data-menu-hamburger></span>
                 <span className="menu-hamburger_bar -bar-1"></span>
                 <span className="menu-hamburger_bar -bar-2"></span>
                 <span className="menu-hamburger_bar -bar-3"></span>

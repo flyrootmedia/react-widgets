@@ -3,7 +3,9 @@
 .global-header {
     background: #fff;
     box-shadow: 0 0 15px rgba(0,0,0,0.2);
-    position: relative;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
     width: 100%;
     z-index: 10;
     

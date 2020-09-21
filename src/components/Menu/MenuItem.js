@@ -18,7 +18,7 @@ const getMenuItemHeight = (subMenuHeight, isOpen) => {
  * @prop {Object[]} subMenuLinks: array of subment link objects
  * @prop {function} closeMenu: Redux action; closes the menu
  */
-const MenuItem = ({ label, url, subMenuLinks, animateSubMenus, closeMenu }) => {
+const MenuItem = ({ label, url, subMenuLinks, animateSubMenus, menuIsOpen, closeMenu }) => {
     const [subMenuIsOpen, setSubMenuIsOpen] = useState(false);
     const [subMenuHeight, setSubMenuHeight] = useState(animateSubMenus ? getMenuItemHeight(0, false) : 'auto');
     const menuItemEl = useRef();
@@ -44,11 +44,13 @@ const MenuItem = ({ label, url, subMenuLinks, animateSubMenus, closeMenu }) => {
 
     useEffect(() => {
         setSubMenuHeight(animateSubMenus ? getMenuItemHeight(0, false) : 'auto');
-    }, [animateSubMenus]);
+    }, [animateSubMenus, menuIsOpen]);
 
     useEffect(() => {
         const onBodyClick = (event) => {
-            if (menuItemEl.current && !menuItemEl.current.contains(event.target)) {
+            if (
+                menuItemEl.current && 
+                !menuItemEl.current.contains(event.target)) {
                 setSubMenuIsOpen(false);
             }
         };

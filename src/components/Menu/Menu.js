@@ -25,7 +25,11 @@ const Menu = ({ position = 'left', animateSubMenus = true, menuIsOpen, menuItems
 
     useEffect(() => {
         const onBodyClick = (event) => {
-            if (navEl.current && !navEl.current.contains(event.target)) {
+            if (
+                menuIsOpen && 
+                navEl.current && 
+                !navEl.current.contains(event.target) && 
+                event.target.getAttribute('data-menu-hamburger') === null) {
                 closeMenu();
             }
         };
@@ -34,7 +38,7 @@ const Menu = ({ position = 'left', animateSubMenus = true, menuIsOpen, menuItems
         return () => {
             document.body.removeEventListener('click', onBodyClick);
         };
-    }, [closeMenu]);
+    }, [closeMenu, menuIsOpen]);
 
     const renderedMenuItems = menuItems.map(menuItem => {
         return (

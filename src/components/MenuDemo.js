@@ -19,6 +19,13 @@ const MenuDemo = ({ menuPosition, setMenuPosition, animateSubMenus, setSubMenuAn
                 demo site uses the <strong>Menu</strong> Widget.
             </p>
 
+            <p>
+                Note that to keep all menu elements self-contained, the hamburger button is nested as a child of 
+                the <strong>Menu</strong> component, so for the purposes of this demo app it's using fixed positioning to place it 
+                in the global header. That may not work for your app, but you should be able to move 
+                the <strong>MenuHamburger</strong> component to any location in your app and adjust the styles/position. 
+            </p>
+
             <h3>Features</h3>
 
             <ul>
@@ -31,6 +38,9 @@ const MenuDemo = ({ menuPosition, setMenuPosition, animateSubMenus, setSubMenuAn
                 <li>
                     Sub-menus appear in an accordion style at mobile widths, and a dropdown 
                     at desktop widths.
+                </li>
+                <li>
+                    As written, relies on Redux to control the open/closed state.
                 </li>
             </ul>
 

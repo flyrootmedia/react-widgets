@@ -8,7 +8,7 @@ import Menu from './Menu/Menu';
 
 const GlobalHeader = ({ menuPosition, animateSubMenus }) => {
     return (
-        <div className={`global-header clearfix -fixed`}>
+        <div className={`global-header clearfix`}>
             <div className="global-header_wrapper max-width-wrapper">
                 <div className="global-header_menu-btn-col">
                 </div>
