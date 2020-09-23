@@ -6,17 +6,14 @@ import reducers from './reducers';
 
 import App from './components/App';
 
-// to use the Chrome/FF Redux devtools. 
+// to use the Chrome/FF Redux devtools.
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-const store = createStore(
-    reducers,
-    composeEnhancers()
-);
+const store = createStore(reducers, composeEnhancers());
 
 ReactDOM.render(
-    <Provider store={store}>
-        <App />
-    </Provider>,
-    document.querySelector('#root')
-)
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.querySelector('#root')
+);

@@ -3,9 +3,7 @@ import React from 'react';
 import Modal from './Modal/Modal';
 
 const ModalDemo = () => {
-    return (
-        <Modal />
-    );
+  return <Modal />;
 };
 
 export default ModalDemo;

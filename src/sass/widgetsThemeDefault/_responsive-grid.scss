@@ -2,88 +2,87 @@
 // @import './mixins';
 // @import './breakpoints';
 
-// This is the start of what could be a larger grid framework. 
+// This is the start of what could be a larger grid framework.
 // For now I've only added the classes I need for this project's layout.
 @mixin grid-cols($span, $totalCols, $start: 1, $spacing: 15px) {
-    grid-column: $start / span $span;
+  grid-column: $start / span $span;
 
-    @if $start != $totalCols {
-        padding-right: $spacing;
-    }
+  @if $start != $totalCols {
+    padding-right: $spacing;
+  }
 
-    @if $start == ($totalCols - $span) + 1 {
-        padding-right: 0;
-    }
+  @if $start == ($totalCols - $span) + 1 {
+    padding-right: 0;
+  }
 
-    @if $start != 1 {
-        padding-left: $spacing;
-    }
+  @if $start != 1 {
+    padding-left: $spacing;
+  }
 }
 
 @mixin responsive-grid($totalCols: 12) {
-    @include medium-screen-up {
-        .-span-3 {
-            @include grid-cols(3, $totalCols);
+  @include medium-screen-up {
+    .-span-3 {
+      @include grid-cols(3, $totalCols);
 
-            &.-start-4 {
-                @include grid-cols(3, $totalCols, 4);
-            }
+      &.-start-4 {
+        @include grid-cols(3, $totalCols, 4);
+      }
 
-            &.-start-7 {
-                @include grid-cols(3, $totalCols, 7);
-            }
+      &.-start-7 {
+        @include grid-cols(3, $totalCols, 7);
+      }
 
-            &.-start-10 {
-                @include grid-cols(3, $totalCols, 10);
-            }
-        }
-
-        .-span-4 {
-            @include grid-cols(4, $totalCols);
-        }
-
-        .-span-6 {
-            @include grid-cols(6, $totalCols);
-
-            &.-start-7 {
-                @include grid-cols(6, $totalCols, 7);
-            }
-        }
-
-        .-span-8 {
-            @include grid-cols(8, $totalCols);
-
-            &.-start-5 {
-                @include grid-cols(8, $totalCols, 5);
-            }
-        }
-
-        .-span-12 {
-            @include grid-cols(12, $totalCols);
-        }
+      &.-start-10 {
+        @include grid-cols(3, $totalCols, 10);
+      }
     }
 
+    .-span-4 {
+      @include grid-cols(4, $totalCols);
+    }
+
+    .-span-6 {
+      @include grid-cols(6, $totalCols);
+
+      &.-start-7 {
+        @include grid-cols(6, $totalCols, 7);
+      }
+    }
+
+    .-span-8 {
+      @include grid-cols(8, $totalCols);
+
+      &.-start-5 {
+        @include grid-cols(8, $totalCols, 5);
+      }
+    }
+
+    .-span-12 {
+      @include grid-cols(12, $totalCols);
+    }
+  }
 }
 
 .responsive-grid {
-    align-items: center;
-    display: grid;
-    
-    @include medium-screen-up {
-        &.-cols-6 {
-            grid-template-columns: repeat(6, 16.6666%);
+  align-items: center;
+  display: grid;
 
-            &.-auto-cols {
-                grid-template-columns: repeat(6, 1fr);
-            }
+  @include medium-screen-up {
+    &.-cols-6 {
+      grid-template-columns: repeat(6, 16.6666%);
 
-            @include responsive-grid(6);
-        }
+      &.-auto-cols {
+        grid-template-columns: repeat(6, 1fr);
+      }
 
-        &.-cols-12 {
-            grid-template-columns: repeat(12, 8.3333%);
-            
-            @include responsive-grid(12);
-        }
+      @include responsive-grid(6);
     }
+
+    &.-cols-12 {
+      grid-template-columns: repeat(12, 8.3333%);
+
+      @include responsive-grid(12);
+    }
+  }
 }

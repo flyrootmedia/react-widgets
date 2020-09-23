@@ -7,31 +7,28 @@ import { connect } from 'react-redux';
 import Menu from './Menu/Menu';
 
 const GlobalHeader = ({ menuPosition, animateSubMenus }) => {
-    return (
-        <div className={`global-header clearfix`}>
-            <div className="global-header_wrapper max-width-wrapper">
-                <div className="global-header_menu-btn-col">
-                </div>
-                <div className="global-header_logo-col">
-                    <Link to="/">
-                        React Widgets <span>by FlyRootMedia</span>
-                    </Link>
-                </div>
-                <div className="global-header_nav-col">
-                    <Menu position={menuPosition} animateSubMenus={animateSubMenus} />
-                </div>
-            </div>
+  return (
+    <div className={`global-header clearfix`}>
+      <div className="global-header_wrapper max-width-wrapper">
+        <div className="global-header_menu-btn-col"></div>
+        <div className="global-header_logo-col">
+          <Link to="/">
+            React Widgets <span>by FlyRootMedia</span>
+          </Link>
         </div>
-    );
+        <div className="global-header_nav-col">
+          <Menu position={menuPosition} animateSubMenus={animateSubMenus} />
+        </div>
+      </div>
+    </div>
+  );
 };
 
 const mapStateToProps = (state) => {
-    return {
-        menuPosition: state.globalMenuPosition,
-        animateSubMenus: state.globalMenuAnimateSubmenus
-    };
+  return {
+    menuPosition: state.globalMenuPosition,
+    animateSubMenus: state.globalMenuAnimateSubmenus
+  };
 };
 
-export default connect(
-    mapStateToProps
-)(GlobalHeader);
+export default connect(mapStateToProps)(GlobalHeader);

@@ -13,101 +13,101 @@ $hamburger-horizontal-position: 15px;
 $hamburger-vertical-position: 16px;
 
 .menu-hamburger {
-    background: transparent;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  height: 29px;
+  margin: 0;
+  padding: 0;
+  position: fixed;
+  top: $hamburger-vertical-position;
+  transition: all 0.2s ease-out;
+  width: 36px;
+
+  // position based on menu prop class
+  .-left & {
+    left: $hamburger-horizontal-position;
+  }
+
+  .-right & {
+    right: $hamburger-horizontal-position;
+  }
+
+  &:focus {
     border: none;
-    cursor: pointer;
-    height: 29px;
-    margin: 0;
-    padding: 0;
-    position: fixed;
-    top: $hamburger-vertical-position;
-    transition: all .2s ease-out;
-    width: 36px;
-    
-    // position based on menu prop class
-    .-left & {
-        left: $hamburger-horizontal-position
+    outline: none;
+  }
+
+  &_overlay {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 2;
+  }
+
+  &_bar {
+    background: $bar-color-default;
+    display: block;
+    height: 5px;
+    position: absolute;
+    transition: all 0.2s ease-out;
+    width: 100%;
+
+    &.-bar-1 {
+      left: 0;
+      top: 0;
     }
 
-    .-right & {
-        right: $hamburger-horizontal-position
+    &.-bar-2 {
+      left: 0;
+      opacity: 1;
+      top: 12px;
     }
 
-    &:focus {
-        border: none;
-        outline: none;
+    &.-bar-3 {
+      bottom: 0;
+      left: 0;
     }
+  }
 
-    &_overlay {
-        height: 100%;
-        left: 0;
-        position: absolute;
-        top: 0;
-        width: 100%;
-        z-index: 2;
+  &:hover {
+    .menu-hamburger_bar {
+      background: $bar-color-default-hover;
     }
+  }
 
-    &_bar {
-        background: $bar-color-default;
-        display: block;
-        height: 5px;
-        position: absolute;
-        transition: all .2s ease-out;
-        width: 100%;
-        
-        &.-bar-1 {
-            left: 0;
-            top: 0;
-        }
+  &.-open {
+    transform: rotate(180deg);
 
-        &.-bar-2 {
-            left: 0;
-            opacity: 1;
-            top: 12px;
-        }
+    .menu-hamburger_bar {
+      background: $bar-color-active;
+      &.-bar-1 {
+        top: 12px;
+        transform: rotate(-45deg);
+      }
 
-        &.-bar-3 {
-            bottom: 0;
-            left: 0;
-        }
+      &.-bar-2 {
+        opacity: 0;
+      }
+
+      &.-bar-3 {
+        bottom: 12px;
+        transform: rotate(45deg);
+      }
     }
 
     &:hover {
-        .menu-hamburger_bar {
-            background: $bar-color-default-hover;
-        }
+      .menu-hamburger_bar {
+        background: $bar-color-active-hover;
+      }
     }
-
-    &.-open {
-        transform: rotate(180deg);
-        
-        .menu-hamburger_bar {
-            background: $bar-color-active;
-            &.-bar-1 {
-                top: 12px;
-                transform: rotate(-45deg);
-            }
-    
-            &.-bar-2 {
-                opacity: 0;
-            }
-    
-            &.-bar-3 {
-                bottom: 12px;
-                transform: rotate(45deg);
-            }
-        }
-
-        &:hover {
-            .menu-hamburger_bar {
-                background: $bar-color-active-hover;
-            }
-        }
-    }
+  }
 }
 
 @include extra-large-screen-up {
-    .menu-hamburger {
-        display: none;
-    }
+  .menu-hamburger {
+    display: none;
+  }
 }

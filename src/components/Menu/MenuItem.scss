@@ -18,235 +18,235 @@ $sub-menu-link-color: $color-theme-main;
 
 // menu item mixins
 @mixin menu-item-default-state {
-    background-color: #fff;
-    color: $default-state-font-color;
+  background-color: #fff;
+  color: $default-state-font-color;
 
-    .arrow-down {
-        border-top-color: $hover-state-underline-color;
-    }
+  .arrow-down {
+    border-top-color: $hover-state-underline-color;
+  }
 }
 
 @mixin mobile-menu-item-hover-state {
-    background-color: $hover-state-background-color;
-    color: #fff;
+  background-color: $hover-state-background-color;
+  color: #fff;
 
-    .arrow-down {
-        border-top-color: #fff;
-    }
+  .arrow-down {
+    border-top-color: #fff;
+  }
 }
 
 @mixin mobile-menu-item-active-state {
-    background-color: $active-state-background-color;
-    color: #fff;
-    
-    .arrow-down {
-        border-top-color: #fff;
-    }
+  background-color: $active-state-background-color;
+  color: #fff;
+
+  .arrow-down {
+    border-top-color: #fff;
+  }
 }
 
 // menu items - default/mobile widths
 .menu-item {
-    &.-active {
-        @include mobile-menu-item-active-state;
+  &.-active {
+    @include mobile-menu-item-active-state;
+  }
+
+  &_button,
+  &_link {
+    border-color: #fff;
+    border-style: solid;
+    border-width: 1px 0;
+    box-sizing: border-box;
+    display: block;
+    font-size: $level-one-item-font-size;
+    font-weight: $level-one-item-font-weight;
+    line-height: $level-one-item-line-height;
+    padding: 10px 20px;
+    position: relative;
+    text-align: left;
+    text-decoration: none;
+    transition: background-color 0.2s ease-out, color 0.2s ease-out;
+    width: 100%;
+
+    @include menu-item-default-state;
+
+    &:hover {
+      @include mobile-menu-item-hover-state;
     }
 
-    &_button, 
-    &_link {
-        border-color: #fff;
-        border-style: solid;
-        border-width: 1px 0;
-        box-sizing: border-box;
-        display: block;
-        font-size: $level-one-item-font-size;
-        font-weight: $level-one-item-font-weight;
-        line-height: $level-one-item-line-height;
-        padding: 10px 20px;
-        position: relative;
-        text-align: left;
-        text-decoration: none;
-        transition: background-color .2s ease-out, color .2s ease-out;
-        width: 100%;
-        
-        @include menu-item-default-state;
+    &.active {
+      @include mobile-menu-item-active-state;
+    }
+  }
 
-        &:hover {
-            @include mobile-menu-item-hover-state;
-        }
+  &:first-child {
+    .menu-item_button,
+    .menu-item_link {
+      border-top-width: 0;
+    }
+  }
 
-        &.active {
-            @include mobile-menu-item-active-state;
-        }
+  &_button {
+    padding-right: 18px;
+
+    .arrow-down {
+      display: block;
+      position: absolute;
+      right: 20px;
+      top: 50%;
+    }
+  }
+
+  &_sub-menu {
+    background: #fff;
+    display: none;
+    font-weight: $sub-menu-font-weight;
+    list-style: none;
+    margin: 10px 0;
+    padding: 0 20px;
+
+    li {
+      margin-bottom: 8px;
     }
 
-    &:first-child {
-        .menu-item_button,
-        .menu-item_link {
-            border-top-width: 0;
-        }
+    a {
+      color: $sub-menu-link-color;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &.-open {
+    .menu-item_button {
+      @include mobile-menu-item-active-state;
     }
 
-    &_button {
-        padding-right: 18px;
-
-        .arrow-down {
-            display: block;
-            position: absolute;
-            right: 20px;
-            top: 50%;
-        }
+    .menu-item_sub-menu {
+      display: block;
     }
-
-    &_sub-menu {
-        background: #fff;
-        display: none;
-        font-weight: $sub-menu-font-weight;
-        list-style: none;
-        margin: 10px 0;
-        padding: 0 20px;
-        
-        li {
-            margin-bottom: 8px;
-        }
-
-        a {
-            color: $sub-menu-link-color;
-            text-decoration: none;
-
-            &:hover {
-                text-decoration: underline;
-            }
-        }
-    }
-
-    &.-open {
-        .menu-item_button {
-            @include mobile-menu-item-active-state;
-        }
-
-        .menu-item_sub-menu {
-            display: block;
-        }
-    }
+  }
 }
 
 // Menu-Specific Settings
 .menu.-left {
-    .menu-item_sub-menu {
-        border-left: 4px solid $sub-menu-border-color;
-    }
+  .menu-item_sub-menu {
+    border-left: 4px solid $sub-menu-border-color;
+  }
 }
 
 .menu.-right {
-    .menu-item_sub-menu {
-        border-right: 4px solid $sub-menu-border-color;
-    }
+  .menu-item_sub-menu {
+    border-right: 4px solid $sub-menu-border-color;
+  }
 }
 
 .menu.-animatedSubMenus {
-    .menu-item {
-        overflow: hidden;
-        transition: height .2s ease-out;
+  .menu-item {
+    overflow: hidden;
+    transition: height 0.2s ease-out;
 
-        &_sub-menu {
-            display: block;
-        }
+    &_sub-menu {
+      display: block;
     }
+  }
 }
 
 // menu items - desktop widths
 @include extra-large-screen-up {
+  .menu-item {
+    margin: 0 1%;
+    position: relative;
+    white-space: nowrap;
+
+    &.-active {
+      @include menu-item-default-state;
+    }
+
+    &_button,
+    &_link {
+      border-width: 0;
+      margin: 0 20px;
+      padding: 10px 0;
+      width: auto;
+
+      &::after {
+        background: $hover-state-underline-color;
+        bottom: 0;
+        content: '';
+        display: block;
+        height: 2px;
+        left: 50%;
+        position: absolute;
+        transition: all 0.2s ease-out;
+        width: 0;
+      }
+
+      &:hover,
+      &.active {
+        @include menu-item-default-state;
+
+        &::after {
+          left: 0;
+          width: 100%;
+        }
+      }
+    }
+
+    &_button {
+      padding-right: 18px;
+
+      .arrow-down {
+        left: auto;
+        right: 0;
+      }
+    }
+
+    &_sub-menu {
+      border: none;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+      font-size: 0.8rem;
+      padding-top: 15px;
+    }
+
+    &.-open {
+      .menu-item_button,
+      .menu-item_link {
+        border: none;
+      }
+
+      .menu-item_button {
+        @include menu-item-default-state;
+      }
+
+      .menu-item_sub-menu {
+        left: 20px;
+        position: absolute;
+        top: 32px;
+        width: 200px;
+        z-index: 10;
+      }
+    }
+  }
+
+  // TODO: figure out positioning issues with animated menu at desktop widths.
+  // Right now I'm just overriding it back to the default styles
+  .menu.-animatedSubMenus {
     .menu-item {
-        margin: 0 1%;
-        position: relative;
-        white-space: nowrap;
+      transition: none;
+      overflow: visible;
+      height: 44px !important;
 
-        &.-active {
-            @include menu-item-default-state;
+      &_sub-menu {
+        display: none;
+      }
+
+      &.-open {
+        .menu-item_sub-menu {
+          display: block;
         }
-        
-        &_button, 
-        &_link {
-            border-width: 0;
-            margin: 0 20px;
-            padding: 10px 0;
-            width: auto;
-
-            &::after {
-                background: $hover-state-underline-color;
-                bottom: 0;
-                content: '';
-                display: block;
-                height: 2px;
-                left: 50%;
-                position: absolute;
-                transition: all .2s ease-out;
-                width: 0;
-            }
-
-            &:hover, 
-            &.active {
-                @include menu-item-default-state;
-
-                &::after {
-                    left: 0;
-                    width: 100%;
-                }
-            }
-        }
-
-        &_button {
-            padding-right: 18px;
-    
-            .arrow-down {
-                left: auto;
-                right: 0;
-            }
-        }
-
-        &_sub-menu {
-            border: none;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.2);
-            font-size: 0.8rem;
-            padding-top: 15px;
-        }
-
-        &.-open {
-            .menu-item_button, 
-            .menu-item_link {
-                border: none;
-            }
-
-            .menu-item_button {
-                @include menu-item-default-state;
-            }
-    
-            .menu-item_sub-menu {
-                left: 20px;
-                position: absolute;
-                top: 32px;
-                width: 200px;
-                z-index: 10;
-            }
-        }
+      }
     }
-
-    // TODO: figure out positioning issues with animated menu at desktop widths.
-    // Right now I'm just overriding it back to the default styles
-    .menu.-animatedSubMenus {
-        .menu-item {
-            transition: none;
-            overflow: visible;
-            height: 44px !important;
-    
-            &_sub-menu {
-                display: none;
-            }
-
-            &.-open {
-                .menu-item_sub-menu {
-                    display: block;
-                }
-            }
-        }
-    }
+  }
 }

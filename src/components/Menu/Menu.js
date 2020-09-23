@@ -21,60 +21,58 @@ import MenuItem from './MenuItem';
  * @prop {function} closeMenu: Redux action; closes the menu
  */
 const Menu = ({ position = 'left', animateSubMenus = true, menuIsOpen, menuItems, closeMenu }) => {
-    let navEl = useRef();
+  let navEl = useRef();
 
-    useEffect(() => {
-        const onBodyClick = (event) => {
-            if (
-                menuIsOpen && 
-                navEl.current && 
-                !navEl.current.contains(event.target) && 
-                event.target.getAttribute('data-menu-hamburger') === null) {
-                closeMenu();
-            }
-        };
-        document.body.addEventListener('click', onBodyClick);
+  useEffect(() => {
+    const onBodyClick = (event) => {
+      if (
+        menuIsOpen &&
+        navEl.current &&
+        !navEl.current.contains(event.target) &&
+        event.target.getAttribute('data-menu-hamburger') === null
+      ) {
+        closeMenu();
+      }
+    };
+    document.body.addEventListener('click', onBodyClick);
 
-        return () => {
-            document.body.removeEventListener('click', onBodyClick);
-        };
-    }, [closeMenu, menuIsOpen]);
+    return () => {
+      document.body.removeEventListener('click', onBodyClick);
+    };
+  }, [closeMenu, menuIsOpen]);
 
-    const renderedMenuItems = menuItems.map(menuItem => {
-        return (
-            <MenuItem 
-                key={menuItem.label}
-                label={menuItem.label} 
-                url={menuItem.url}
-                subMenuLinks={menuItem.subMenuLinks} 
-                animateSubMenus={animateSubMenus}
-            />
-        );
-    });
-
+  const renderedMenuItems = menuItems.map((menuItem) => {
     return (
-        <React.Fragment>
-            <div className={`menu-overlay ${menuIsOpen ? '-open' : ''}`}></div>
-            <nav 
-                ref={navEl} 
-                className={`menu ${menuIsOpen ? '-open' : ''} -${position} ${animateSubMenus ? '-animatedSubMenus' : ''}`}>
-                    <MenuHamburger />
-                    <ul className="menu_level-one">
-                        {renderedMenuItems}
-                    </ul>
-            </nav>
-        </React.Fragment>
+      <MenuItem
+        key={menuItem.label}
+        label={menuItem.label}
+        url={menuItem.url}
+        subMenuLinks={menuItem.subMenuLinks}
+        animateSubMenus={animateSubMenus}
+      />
     );
+  });
+
+  return (
+    <React.Fragment>
+      <div className={`menu-overlay ${menuIsOpen ? '-open' : ''}`}></div>
+      <nav
+        ref={navEl}
+        className={`menu ${menuIsOpen ? '-open' : ''} -${position} ${
+          animateSubMenus ? '-animatedSubMenus' : ''
+        }`}>
+        <MenuHamburger />
+        <ul className="menu_level-one">{renderedMenuItems}</ul>
+      </nav>
+    </React.Fragment>
+  );
 };
 
 const mapStateToProps = (state) => {
-    return {
-        menuItems: state.menu.menuItems,
-        menuIsOpen: state.menu.menuIsOpen
-    };
+  return {
+    menuItems: state.menu.menuItems,
+    menuIsOpen: state.menu.menuIsOpen
+  };
 };
 
-export default connect(
-    mapStateToProps,
-    { closeMenu }
-)(Menu);
+export default connect(mapStateToProps, { closeMenu })(Menu);

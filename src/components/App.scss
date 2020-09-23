@@ -4,129 +4,131 @@
 $border-radius: 6px;
 
 body {
-    background: -moz-linear-gradient(top, #{$color-gray-five} 0%, #ffffff 50%);
-    background: -webkit-linear-gradient(top,  #{$color-gray-five} 0%,#ffffff 50%);
-    background: linear-gradient(to bottom,  #{$color-gray-five} 0%,#ffffff 50%);
-    background-repeat: no-repeat;
-    color: $color-main-text;
-    font-family: $font-family-body;
+  background: -moz-linear-gradient(top, #{$color-gray-five} 0%, #ffffff 50%);
+  background: -webkit-linear-gradient(top, #{$color-gray-five} 0%, #ffffff 50%);
+  background: linear-gradient(to bottom, #{$color-gray-five} 0%, #ffffff 50%);
+  background-repeat: no-repeat;
+  color: $color-main-text;
+  font-family: $font-family-body;
 }
 
 a {
-    color: $color-theme-main;
+  color: $color-theme-main;
 }
 
 code {
-    background: $color-gray-one;
-    border: 2px solid $color-gray-three;
-    border-radius: $border-radius;
-    color: $color-gray-five;
-    display: inline-block;
-    font-size: $font-size-14;
-    padding: 0 5px;
-    white-space: pre-wrap;
+  background: $color-gray-one;
+  border: 2px solid $color-gray-three;
+  border-radius: $border-radius;
+  color: $color-gray-five;
+  display: inline-block;
+  font-size: $font-size-14;
+  padding: 0 5px;
+  white-space: pre-wrap;
 
-    &.code-block {
-        display: block;
-        margin-bottom: 20px;
-        padding: 20px;
-    }
+  &.code-block {
+    display: block;
+    margin-bottom: 20px;
+    padding: 20px;
+  }
 }
 
-h1, h2, h3 {
-    font-family: $font-family-theme;
-    margin: 0 0 1.2rem 0;
-    padding: 0;
+h1,
+h2,
+h3 {
+  font-family: $font-family-theme;
+  margin: 0 0 1.2rem 0;
+  padding: 0;
 }
 
 p {
-    line-height: 1.5rem;
+  line-height: 1.5rem;
 }
 
 ul {
-    line-height: 1.5rem;
-    list-style-type: square;
-    list-style-position: inside;
-    margin: 0 0 20px;
-    padding: 0 0 0 20px;
+  line-height: 1.5rem;
+  list-style-type: square;
+  list-style-position: inside;
+  margin: 0 0 20px;
+  padding: 0 0 0 20px;
 }
 
 .App {
-    min-width: 320px;
+  min-width: 320px;
 }
 
 .max-width-wrapper {
-    box-sizing: border-box;
-    margin: 0 auto;
-    max-width: $max-width;
-    min-width: $extra-small;
-    padding: 0 20px;
-    width: 100%;
+  box-sizing: border-box;
+  margin: 0 auto;
+  max-width: $max-width;
+  min-width: $extra-small;
+  padding: 0 20px;
+  width: 100%;
 
-    &.-pad-top {
-        padding-top: 20px;
-    }
+  &.-pad-top {
+    padding-top: 20px;
+  }
 }
 
 .promo-grid {
-    align-items: center;
-    display: grid;
-    grid-column-gap: 20px;
-    grid-row-gap: 20px;
-    grid-template-columns: 1fr;
+  align-items: center;
+  display: grid;
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+  grid-template-columns: 1fr;
 }
 
 .promo-box {
-    align-items: center;
-    background: $color-theme-main;
-    border: 2px solid $color-theme-main-shade;
-    border-radius: $border-radius;
-    box-shadow: 0 0 5px rgba(0,0,0,0.3);
-    color: #fff;
-    display: flex;
-    font-size: $font-size-24;
-    font-weight: $font-weight-bold;
-    justify-content: center;
-    padding: 30px;
-    text-align: center;
-    text-decoration: none;
-    transition: background-color .2s ease-out;
+  align-items: center;
+  background: $color-theme-main;
+  border: 2px solid $color-theme-main-shade;
+  border-radius: $border-radius;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  color: #fff;
+  display: flex;
+  font-size: $font-size-24;
+  font-weight: $font-weight-bold;
+  justify-content: center;
+  padding: 30px;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.2s ease-out;
 
-    &:hover {
-        background: $color-theme-main-tint;
-    }
+  &:hover {
+    background: $color-theme-main-tint;
+  }
 }
 
 .statement {
-    color: #c284bd;
+  color: #c284bd;
 }
 
 .element {
-    color: #9cdcfe;
+  color: #9cdcfe;
 }
 
 .keyword {
-    color: #569cd6;
+  color: #569cd6;
 }
 
 .function {
-    color: #dcdcaa;
+  color: #dcdcaa;
 }
 
 .string {
-    color: #ce9178;
+  color: #ce9178;
 }
 
 .tag {
-    color: #4ec9b0;
+  color: #4ec9b0;
 }
 
 .comment {
-    color: #6a9955;
+  color: #6a9955;
 }
 
 @include small-screen-up {
-    .promo-grid {
-        grid-template-columns: 1fr 1fr;
-    }
+  .promo-grid {
+    grid-template-columns: 1fr 1fr;
+  }
 }

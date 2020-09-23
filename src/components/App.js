@@ -12,19 +12,19 @@ import StyledFormDemo from './StyledFormDemo';
 import GlobalHeader from './GlobalHeader';
 
 const App = () => {
-    return (
-        <div className="App">
-            <BrowserRouter>
-                <GlobalHeader />
-                <Route path="/" exact component={WidgetList} />
-                <Route path="/accordion" exact component={AccordionDemo} />
-                <Route path="/inline-alert" exact component={InlineAlertDemo} />
-                <Route path="/menu" exact component={MenuDemo} />
-                <Route path="/modal" exact component={ModalDemo} />
-                <Route path="/styled-form" exact component={StyledFormDemo} />
-            </BrowserRouter>
-        </div>
-    );
+  return (
+    <div className="App">
+      <BrowserRouter>
+        <GlobalHeader />
+        <Route path="/" exact component={WidgetList} />
+        <Route path="/accordion" exact component={AccordionDemo} />
+        <Route path="/inline-alert" exact component={InlineAlertDemo} />
+        <Route path="/menu" exact component={MenuDemo} />
+        <Route path="/modal" exact component={ModalDemo} />
+        <Route path="/styled-form" exact component={StyledFormDemo} />
+      </BrowserRouter>
+    </div>
+  );
 };
 
 export default App;

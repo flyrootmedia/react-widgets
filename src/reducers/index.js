@@ -11,8 +11,8 @@ import menuPositionReducer from './menuPositionReducer';
 import menuAnimateSubMenusReducer from './menuAnimateSubMenusReducer';
 
 export default combineReducers({
-    accordion: accordionReducer,
-    menu: menuReducer,
-    globalMenuPosition: menuPositionReducer,
-    globalMenuAnimateSubmenus: menuAnimateSubMenusReducer
+  accordion: accordionReducer,
+  menu: menuReducer,
+  globalMenuPosition: menuPositionReducer,
+  globalMenuAnimateSubmenus: menuAnimateSubMenusReducer
 });

@@ -11,73 +11,73 @@ $mobile-menu-height: $mobile-header-height;
 $mobile-menu-width: 250px;
 
 .menu-overlay {
-    display: none;
+  display: none;
 
-    &.-open {
-        background: rgba(0,0,0,0.3);
-        bottom: 0;
-        display: block;
-        left: 0;
-        position: fixed;
-        right: 0;
-        top: $mobile-menu-height;
-    }
+  &.-open {
+    background: rgba(0, 0, 0, 0.3);
+    bottom: 0;
+    display: block;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: $mobile-menu-height;
+  }
 }
 
 .menu {
-    background: #fff;
-    box-shadow: 0 0 12px rgba(0,0,0,0.3);
-    font-family: $menu-font;
-    height: calc(100vh - #{$mobile-menu-height});
-    position: fixed;
-    top: $mobile-menu-height;
-    transition: left 0.2s ease-out, right 0.2s ease-out;
-    width: $mobile-menu-width;
+  background: #fff;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
+  font-family: $menu-font;
+  height: calc(100vh - #{$mobile-menu-height});
+  position: fixed;
+  top: $mobile-menu-height;
+  transition: left 0.2s ease-out, right 0.2s ease-out;
+  width: $mobile-menu-width;
 
-    &.-left {
-        left: calc((#{$mobile-menu-width} + 15px) * -1);
+  &.-left {
+    left: calc((#{$mobile-menu-width} + 15px) * -1);
 
-        &.-open {
-            left: 0;
-        }
+    &.-open {
+      left: 0;
     }
+  }
 
-    &.-right {
-        right: calc((#{$mobile-menu-width} + 15px) * -1);
+  &.-right {
+    right: calc((#{$mobile-menu-width} + 15px) * -1);
 
-        &.-open {
-            right: 0;
-        }
+    &.-open {
+      right: 0;
     }
+  }
 
-    &_level-one {
-        list-style: none;
-        margin: 0;
-        max-height: 100%;
-        overflow: hidden;
-        overflow-y: auto;
-        padding: 0;
-        -webkit-overflow-scrolling: touch;
-    }
+  &_level-one {
+    list-style: none;
+    margin: 0;
+    max-height: 100%;
+    overflow: hidden;
+    overflow-y: auto;
+    padding: 0;
+    -webkit-overflow-scrolling: touch;
+  }
 }
 
 @include extra-large-screen-up {
-    .menu-overlay.-open {
-        display: none;
-    }
+  .menu-overlay.-open {
+    display: none;
+  }
 
-    .menu {
-        box-shadow: none;
-        height: $desktop-menu-height;
-        position: static;
-        width: 100%;
+  .menu {
+    box-shadow: none;
+    height: $desktop-menu-height;
+    position: static;
+    width: 100%;
 
-        &_level-one {
-            align-items: center;
-            display: flex;
-            height: 100%;
-            justify-content: center;
-            overflow: visible;
-        }
+    &_level-one {
+      align-items: center;
+      display: flex;
+      height: 100%;
+      justify-content: center;
+      overflow: visible;
     }
+  }
 }

@@ -9,16 +9,16 @@
  *          - MenuHamburger.js
  */
 .screen-reader-only {
-    background-color:#fff !important;
-    border: 0 !important;
-    clip: rect(0,0,0,0) !important;
-    color:#000 !important;
-    height: 1px !important;
-    margin: -1px !important;
-    overflow: hidden !important;
-    padding: 0 !important;
-    position: absolute !important;
-    width: 1px !important;
+  background-color: #fff !important;
+  border: 0 !important;
+  clip: rect(0, 0, 0, 0) !important;
+  color: #000 !important;
+  height: 1px !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  position: absolute !important;
+  width: 1px !important;
 }
 
 /*
@@ -28,16 +28,16 @@
  *          - MenuItem.scss
  */
 .arrow-down {
-    border-color: $color-theme-main transparent transparent transparent;
-    border-style: solid;
-    border-width: 8px;
-    display: block;
-    height: 0;
-    width: 0;
-    
-    &.-small {
-        border-width: 4px; 
-    }
+  border-color: $color-theme-main transparent transparent transparent;
+  border-style: solid;
+  border-width: 8px;
+  display: block;
+  height: 0;
+  width: 0;
+
+  &.-small {
+    border-width: 4px;
+  }
 }
 
 /*
@@ -46,14 +46,15 @@
  *          - GlobalHeader.js
  */
 .clearfix {
-    *zoom: 1;
-    &::after, &::before {
-        content: "";
-        display: table;
-    }
-    &::after {
-        clear: both;
-    }
+  *zoom: 1;
+  &::after,
+  &::before {
+    content: '';
+    display: table;
+  }
+  &::after {
+    clear: both;
+  }
 }
 
 // .hidden {
@@ -61,29 +62,29 @@
 // }
 
 .btn {
-    margin: 0 15px 15px 0;
-    
-    &.-primary {
-        @include button-primary;
-        &:hover {
-            @include button-primary-hover;
-        }
+  margin: 0 15px 15px 0;
+
+  &.-primary {
+    @include button-primary;
+    &:hover {
+      @include button-primary-hover;
     }
+  }
 
-    // &.-action {
-    //     width: 40px;
-    //     height: 40px;
-    //     background-repeat: no-repeat;
-    //     background-position: 50%;
+  // &.-action {
+  //     width: 40px;
+  //     height: 40px;
+  //     background-repeat: no-repeat;
+  //     background-position: 50%;
 
-    //     &.-edit {
-    //         background-image: url('/images/icon_pencil.png');
-    //     }
+  //     &.-edit {
+  //         background-image: url('/images/icon_pencil.png');
+  //     }
 
-    //     &.-delete {
-    //         background-image: url('/images/icon_trashcan.png');
-    //     }
-    // }
+  //     &.-delete {
+  //         background-image: url('/images/icon_trashcan.png');
+  //     }
+  // }
 }
 
 // .-msg {

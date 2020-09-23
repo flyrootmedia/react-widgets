@@ -1,85 +1,85 @@
 @import '../sass/widgetsThemeDefault/widgetsThemeDefault';
 
 .global-header {
-    background: #fff;
-    box-shadow: 0 0 15px rgba(0,0,0,0.2);
-    position: -webkit-sticky;
-    position: sticky;
+  background: #fff;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+
+  &.-fixed {
+    position: fixed;
     top: 0;
-    width: 100%;
-    z-index: 10;
-    
-    &.-fixed {
-        position: fixed;
-        top: 0;
-    }
+  }
 
-    &_wrapper {
-        align-items: center;
-        display: flex;
-        height: $mobile-header-height;
-    }
-    
-    &_menu-btn-col {
-        width: 60px;
+  &_wrapper {
+    align-items: center;
+    display: flex;
+    height: $mobile-header-height;
+  }
 
-        &_menu-btn {
-            font-size: 2rem;
-        }
-    }
+  &_menu-btn-col {
+    width: 60px;
 
-    &_logo-col {
-        width: calc(100% - 120px);
-
-        a {
-            color: $color-theme-main;
-            display: block;
-            font-family: $font-family-theme;
-            font-size: 1.5rem;
-            font-weight: $font-weight-bold;
-            line-height: 1.5rem;
-            text-align: center;
-            text-decoration: none;
-            
-            span {
-                display: block;
-                font-size: 0.6em;
-            }
-        }
+    &_menu-btn {
+      font-size: 2rem;
     }
+  }
 
-    &_nav-col {
-        width: 60px;
+  &_logo-col {
+    width: calc(100% - 120px);
+
+    a {
+      color: $color-theme-main;
+      display: block;
+      font-family: $font-family-theme;
+      font-size: 1.5rem;
+      font-weight: $font-weight-bold;
+      line-height: 1.5rem;
+      text-align: center;
+      text-decoration: none;
+
+      span {
+        display: block;
+        font-size: 0.6em;
+      }
     }
+  }
+
+  &_nav-col {
+    width: 60px;
+  }
 }
 
 @include extra-large-screen-up {
-    .global-header {
-        &_wrapper {
-            height: $desktop-header-height;
-        }
-
-        &_menu-btn-col {
-            display: none;
-        }
-
-        &_logo-col {
-            width: 350px;
-
-            a {
-                font-size: 2.5rem;
-                line-height: 1.8rem;
-                margin: 0;
-                text-align: left;
-
-                span {
-                    font-size: 0.4em;
-                }
-            }
-        }
-
-        &_nav-col {
-            width: calc(100% - 350px);
-        }
+  .global-header {
+    &_wrapper {
+      height: $desktop-header-height;
     }
+
+    &_menu-btn-col {
+      display: none;
+    }
+
+    &_logo-col {
+      width: 350px;
+
+      a {
+        font-size: 2.5rem;
+        line-height: 1.8rem;
+        margin: 0;
+        text-align: left;
+
+        span {
+          font-size: 0.4em;
+        }
+      }
+    }
+
+    &_nav-col {
+      width: calc(100% - 350px);
+    }
+  }
 }

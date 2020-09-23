@@ -1,13 +1,11 @@
-// _variables.scss: required as written; to remove reliance on these variables, replace the 
+// _variables.scss: required as written; to remove reliance on these variables, replace the
 // values in the individual component .scss files with your own variables or hardcoded values.
 @import './variables';
 
-// _breakpoints.scss: required as written; to remove reliance on these breakpoint mixins, replace 
+// _breakpoints.scss: required as written; to remove reliance on these breakpoint mixins, replace
 // them in the individual component .scss files with your own media queries to match your site's layout.
 @import './breakpoints';
 
-// _utilities.scss: required as written; to remove reliance on this file, either update the 
+// _utilities.scss: required as written; to remove reliance on this file, either update the
 // components to use your own existing classes or move the utility classes into your existing css.
 @import './utilities';
-
-
